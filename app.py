@@ -18,15 +18,15 @@ def predict():
     result = model.predict([[inputs[0], inputs[1]]])
     pred = ''
     if result[0] == 0:
-        pred = "You belongs to cluster 1"
+        pred = "You can invest in Equity market for long and short term as well as in bonds"
     elif result[0] == 1:
-        pred = "You belongs to cluster 2"
+        pred = "You can invest in Equity market for long and short term"
     elif result[0] == 2:
-        pred = "You belongs to cluster 3"
+        pred = "You can invest in Equity market, bonds and start intraday with strict stoploss"
     elif result[0] == 3:
-        pred = "You belongs to cluster 4"
+        pred = "You can invest in Equity market, bonds and also trade in intraday"
     elif result[0] == 4:
-        pred = "You belongs to cluster 5"
+        pred = "You can invest in Equity market for long term"
     else:
         pred = 'some error'
     return render_template('index.html', result=pred)
