@@ -3,3 +3,6 @@ Creating clusters based on different attribubtes of the customer. Those clusters
 
 The Dataset for this project is downloaded from below link:
 https://www.kaggle.com/kunalgupta2616/hackerearth-customer-segmentation-hackathon
+
+This application has been deployed using Heroku:
+https://investment-recommandation.herokuapp.com/
