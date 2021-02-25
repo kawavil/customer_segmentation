@@ -22,9 +22,9 @@ def predict():
     elif result[0] == 1:
         pred = "You can invest in Equity market for long and short term"
     elif result[0] == 2:
-        pred = "You can invest in Equity market, bonds and start intraday with strict stoploss"
-    elif result[0] == 3:
         pred = "You can invest in Equity market, bonds and also trade in intraday"
+    elif result[0] == 3:
+        pred = "You can invest in Equity market, bonds and start intraday with strict stoploss"
     elif result[0] == 4:
         pred = "You can invest in Equity market for long term"
     else:
