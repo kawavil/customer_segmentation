@@ -18,8 +18,9 @@
      <!-- Main Input For Receiving Query to our ML -->
      <center>
     <form action="{{ url_for('predict')}}" method="post">
-    	<input type="text" name="Age" placeholder="Age" required="required" />
-        <input type="text" name="Salary" placeholder="Annual Salary(in thousands)" required="required" />
+    	<input type="number" name="Age" placeholder="Age" required="required" />&nbsp;&nbsp;
+        <input type="number" name="Salary" placeholder="Annual Salary(in thousands)" required="required" />&nbsp;&nbsp;
+        <input type="number" name="Spending_Score" placeholder="Spending score(1-100)" required="required" />
         <br><br>
         <button type="submit" class="btn btn-primary btn-block btn-large">Show Recommandations</button>
     </form>

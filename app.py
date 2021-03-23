@@ -17,19 +17,121 @@ def predict():
     inputs = [val for val in request.form.values()]
     result = model.predict([[inputs[0], inputs[1]]])
     pred = ''
+    savings = (int(inputs[2])/100)*int(inputs[1])
+    age = int(inputs[0])
     if int(inputs[0]) < int(18):
         pred = "Please sit back and relax for few years"
     else:
         if result[0] == 0:
-            pred = "You can invest in Equity market for long and short term as well as in bonds"
+            if 18 <= age <= 28:
+                if savings >= 600:
+                    pred = "You can invest in options and derivatives"
+                else:
+                    pred = "You can invest in equitis and gold"
+            elif 28 < age <= 35:
+                if savings >= 700:
+                    pred = "You can invest in equities with strict stoploss"
+                else:
+                    pred = "You can invest in index funds and mutual funds"
+            elif 35 < age <= 50:
+                if savings >= 400:
+                    pred = "You can invest in mutual funds"
+                else:
+                    pred = "You can invest in fixed deposits and bonds"
+            elif age > 50:
+                if savings >= 300:
+                    pred = "You can invest in fixed deposits"
+                else:
+                    pred = "You can invest in Term Insurance"
+
         elif result[0] == 1:
-            pred = "You can invest in Equity market for long and short term"
+            if 18 <= age <= 28:
+                if savings >= 600:
+                    pred = "You can invest in options and derivatives"
+                else:
+                    pred = "You can invest in equitis and gold"
+            elif 28 < age <= 35:
+                if savings >= 700:
+                    pred = "You can invest in equities with strict stoploss"
+                else:
+                    pred = "You can invest in index funds and mutual funds"
+            elif 35 < age <= 50:
+                if savings >= 400:
+                    pred = "You can invest in mutual funds"
+                else:
+                    pred = "You can invest in fixed deposits and bonds"
+            elif age > 50:
+                if savings >= 300:
+                    pred = "You can invest in fixed deposits"
+                else:
+                    pred = "You can invest in Term Insurance"
+
         elif result[0] == 2:
-            pred = "You can invest in Equity market, bonds and also trade in intraday"
+            if 18 <= age <= 28:
+                if savings >= 600:
+                    pred = "You can invest in options and derivatives"
+                else:
+                    pred = "You can invest in equitis and gold"
+            elif 28 < age <= 35:
+                if savings >= 700:
+                    pred = "You can invest in equities with strict stoploss"
+                else:
+                    pred = "You can invest in index funds and mutual funds"
+            elif 35 < age <= 50:
+                if savings >= 400:
+                    pred = "You can invest in mutual funds"
+                else:
+                    pred = "You can invest in fixed deposits and bonds"
+            elif age > 50:
+                if savings >= 300:
+                    pred = "You can invest in fixed deposits"
+                else:
+                    pred = "You can invest in Term Insurance"
+
         elif result[0] == 3:
-            pred = "You can invest in Equity market, bonds and start intraday with strict stoploss"
+            if 18 <= age <= 28:
+                if savings >= 600:
+                    pred = "You can invest in options and derivatives"
+                else:
+                    pred = "You can invest in equitis and gold"
+            elif 28 < age <= 35:
+                if savings >= 700:
+                    pred = "You can invest in equities with strict stoploss"
+                else:
+                    pred = "You can invest in index funds and mutual funds"
+            elif 35 < age <= 50:
+                if savings >= 400:
+                    pred = "You can invest in mutual funds"
+                else:
+                    pred = "You can invest in fixed deposits and bonds"
+            elif age > 50:
+                if savings >= 300:
+                    pred = "You can invest in fixed deposits"
+                else:
+                    pred = "You can invest in Term Insurance"
+
         elif result[0] == 4:
-            pred = "You can invest in Equity market for long term"
+            if 18 <= age <= 28:
+                if savings >= 600:
+                    pred = "You can invest in options and derivatives"
+                else:
+                    pred = "You can invest in equitis and gold"
+            elif 28 < age <= 35:
+                if savings >= 700:
+                    pred = "You can invest in equities with strict stoploss"
+                else:
+                    pred = "You can invest in index funds and mutual funds"
+            elif 35 < age <= 50:
+                if savings >= 400:
+                    pred = "You can invest in mutual funds"
+                else:
+                    pred = "You can invest in fixed deposits and bonds"
+            elif age > 50:
+                if savings >= 300:
+                    pred = "You can invest in fixed deposits"
+                else:
+                    pred = "You can invest in Term Insurance"
+
         else:
             pred = 'some error'
     print("Cluster ", result[0])
