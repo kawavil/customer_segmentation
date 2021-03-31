@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 
 <head>
@@ -59,17 +60,13 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#"><img src="/static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" ALIGN="left">
-          <span style="padding: inherit;">LogoText</span></a>
+          <span style="padding: inherit;">Market Based Asset Building</span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <!-- <li class="active"><a href="#">Home</a></li> -->
-          <!-- <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li> -->
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
         </ul>
       </div>
     </div>
@@ -85,82 +82,65 @@
         </div>
         {% endfor %}
       </div>
+      <form action= "{{ url_for('predict')}}" method="post">
       <div class="col-sm-8 text-left">
         <div class="row content">
           <div class="col-sm-6">
             <h3>Personal Info</h3>
-            <form action="{{ url_for('predict')}}" method="post">
-            <div class="form-group">
 
-              <label for="email">Age:</label>
-              <input type="number" class="form-control" id="email">
-            </div>
-            <div class="form-group">
-              <label for="pwd">Income:</label>
-              <input type="number" class="form-control" id="pwd">
-            </div>
-            <div class="form-group">
-              <label for="pwd">Income After Tax Deduction:</label>
-              <input type="number" class="form-control" id="pwd">
-            </div>
-          
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age">
+            <label for="income">Income:</label>
+            <input type="number" class="form-control" id="income">
+            <label for="incomeaftertex">Income After Tax Deduction:</label>
+            <input type="number" class="form-control" id="incomeaftertex">
           </div>
           <div class="col-sm-6">
-            <h3>Expenditure</h3>
+              <h3>Expenditure</h3>
 
-            <div class="form-group">
-
-              <label for="email">Food:</label>
-              <input type="number" class="form-control" id="email">
-            </div>
-            <div class="form-group">
-              <label for="pwd">Gadget:</label>
-              <input type="number" class="form-control" id="pwd">
-            </div>
-            <div class="form-group">
-              <label for="pwd">Clothing:</label>
-              <input type="number" class="form-control" id="pwd">
-            </div>
-            <div style="display: flex;">
-              <div class="form-group" style="margin-right: 5px;width: 50%;">
-                <label for="pwd">Home(include everything):</label>
-                <input type="number" class="form-control" id="pwd">
-              </div>
-              <div class="form-group" style="margin-left: 5px;width: 50%;">
-                <label for="pwd">Savings:</label>
-                <input type="number" class="form-control" id="pwd">
+              <label for="food">Food:</label>
+              <input type="number" class="form-control" id="food">
+              <label for="gadget">Gadget:</label>
+              <input type="number" class="form-control" id="gadget">
+              <label for="clothing">Clothing:</label>
+              <input type="number" class="form-control" id="clothing">
+              <div style="display: flex;">
+                <label for="homeexp">Home(include everything):</label>
+                <input type="number" class="form-control" id="homeexp">
+                <label for="savings">Savings:</label>
+                <input type="number" class="form-control" id="savings">
               </div>
             </div>
 
-
-
-          </div>
-          <div class="col-sm-12 text-center">
-            <button type="submit" class="btn btn-default text-center">Show Recommandations</button>
-            <!--<button type="submit" class="btn btn-default text-center" data-toggle="modal" data-target="#myModal">Get
-              Recommendation</button>-->
-          </div>
-        </form>
-        <center>
-          <h3>{{ result }}</h3>
-        </center>
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-default text-center">Show Recommandations</button>
+                <!--<button type="submit" class="btn btn-default text-center" data-toggle="modal" data-target="#myModal">Get
+                  Recommendation</button>-->
+              </div>
+            </div>
         </div>
-      </div>
-      <div class="col-sm-2 sidenav">
+      </form>
+            <center>
+              <h3>{{ result }}</h3>
+            </center>
+
+          <div class="col-sm-2 sidenav">
         <div class="well">
           <p>Gold</p>
+          <p>45,695.00</p>
         </div>
         <div class="well">
           <p>Us Dollar</p>
+         <p>74.76</p>
         </div>
         <div class="well">
-          <p>Label 1</p>
+          <p></p>
         </div>
       </div>
     </div>
   </div>
   <footer class="container-fluid text-center py-5">
-    <p>Footer Text</p>
+    <p>Market Recommandation</p>
   </footer>
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

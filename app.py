@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template
 import pickle
 import stockinfo_retrive as sr
-app = Flask(__name__,static_url_path='/static')
+
+app = Flask(__name__, static_url_path='/static')
 
 pickle_in = open('model.pkl', 'rb')
 model = pickle.load(pickle_in)
@@ -10,16 +11,18 @@ model = pickle.load(pickle_in)
 @app.route('/', methods=['GET'])
 def index():
     params = sr.get_quotes()
-    #params = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6}
-    return render_template('calculator.html', info=params)
+    # params = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6}
+    return render_template('home.html', info=params)
 
 
 @app.route('/predict', methods=["POST"])
 def predict():
     inputs = [val for val in request.form.values()]
+    print(inputs)
     result = model.predict([[inputs[0], inputs[1]]])
     pred = ''
-    savings = (int(inputs[2])/100)*int(inputs[1])
+    savings = 0
+    # savings = (int(inputs[2])/100)*int(inputs[1])
     age = int(inputs[0])
     if int(inputs[0]) < int(18):
         pred = "Please sit back and relax for few years"

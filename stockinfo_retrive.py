@@ -6,7 +6,7 @@ import requests
 
 def get_price(url):
     url_contents = requests.get(url)
-    print(url_contents)
+    # print(url_contents)
 
     soup = BeautifulSoup(url_contents.content, "html.parser")
     div = soup.find("div", {"class": "YMlKec fxKbKc"})
@@ -29,9 +29,7 @@ def get_quotes():
         price = get_price(url)
         pricedict[index] = price
 
-    print(pricedict)
+    print("You can now run the server")
     return pricedict
 
 
-# info = get_quotes()
-# print(info)
