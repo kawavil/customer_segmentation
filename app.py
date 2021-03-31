@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import pickle
 import stockinfo_retrive as sr
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/static')
 
 pickle_in = open('model.pkl', 'rb')
 model = pickle.load(pickle_in)
@@ -10,7 +10,8 @@ model = pickle.load(pickle_in)
 @app.route('/', methods=['GET'])
 def index():
     params = sr.get_quotes()
-    return render_template('index.html', info=params)
+    #params = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6}
+    return render_template('calculator.html', info=params)
 
 
 @app.route('/predict', methods=["POST"])
