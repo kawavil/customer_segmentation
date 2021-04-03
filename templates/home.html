@@ -82,14 +82,14 @@
         </div>
         {% endfor %}
       </div>
-      <form action= "{{ url_for('predict')}}" method="post">
       <div class="col-sm-8 text-left">
+      <form action= "{{ url_for('predict')}}" method="post">
         <div class="row content">
           <div class="col-sm-6">
             <h3>Personal Info</h3>
 
             <label for="age">Age:</label>
-            <input type="number" class="form-control" id="age">
+            <input type="number" class="form-control" id="age" name="age">
             <label for="income">Income:</label>
             <input type="number" class="form-control" id="income">
             <label for="incomeaftertex">Income After Tax Deduction:</label>
@@ -108,7 +108,7 @@
                 <label for="homeexp">Home(include everything):</label>
                 <input type="number" class="form-control" id="homeexp">
                 <label for="savings">Savings:</label>
-                <input type="number" class="form-control" id="savings">
+                <input type="number" class="form-control" id="savings" name="savings">
               </div>
             </div>
 
@@ -118,8 +118,9 @@
                   Recommendation</button>-->
               </div>
             </div>
+        </form>
         </div>
-      </form>
+
             <center>
               <h3>{{ result }}</h3>
             </center>

@@ -7,24 +7,32 @@ app = Flask(__name__, static_url_path='/static')
 pickle_in = open('model.pkl', 'rb')
 model = pickle.load(pickle_in)
 
+index_vals = {}
+
 
 @app.route('/', methods=['GET'])
 def index():
-    params = sr.get_quotes()
+    global index_vals
+    index_vals = sr.get_quotes()
     # params = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6}
-    return render_template('home.html', info=params)
+    return render_template('home.html', info=index_vals)
 
 
 @app.route('/predict', methods=["POST"])
 def predict():
-    inputs = [val for val in request.form.values()]
-    print(inputs)
-    result = model.predict([[inputs[0], inputs[1]]])
+    # params = sr.get_quotes()
+    age = request.form['age']
+    savings = request.form['savings']
+    print("Val1 ", age)
+    age, savings = int(age), int(savings)
+    # inputs = [val for val in request.form.values()]
+    # print("Form inputs are: ", inputs)
+    result = model.predict([[age, savings]])
     pred = ''
-    savings = 0
+    # savings = 0
     # savings = (int(inputs[2])/100)*int(inputs[1])
-    age = int(inputs[0])
-    if int(inputs[0]) < int(18):
+    # age = int(inputs[0])
+    if age < int(18):
         pred = "Please sit back and relax for few years"
     else:
         if result[0] == 0:
@@ -140,7 +148,8 @@ def predict():
         else:
             pred = 'some error'
     print("Cluster ", result[0])
-    return render_template('index.html', result=pred)
+    # param = {'result': pred, 'info':params}
+    return render_template('home.html', result=pred, info=index_vals)
 
 
 if __name__ == '__main__':
