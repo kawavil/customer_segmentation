@@ -59,7 +59,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="/static/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" ALIGN="left">
+        <a class="navbar-brand" href="/"><img src="/static/logo.jpg" width="30" height="30"
+            class="d-inline-block align-top" alt="" ALIGN="left">
           <span style="padding: inherit;">Market Based Asset Building</span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -83,27 +84,27 @@
         {% endfor %}
       </div>
       <div class="col-sm-8 text-left">
-      <form action= "{{ url_for('predict')}}" method="post">
-        <div class="row content">
-          <div class="col-sm-6">
-            <h3>Personal Info</h3>
+        <form action="{{ url_for('predict')}}" method="post">
+          <div class="row content">
+            <div class="col-sm-6">
+              <h3>Personal Info</h3>
 
-            <label for="age">Age:</label>
-            <input type="number" class="form-control" id="age" name="age">
-            <label for="income">Income:</label>
-            <input type="number" class="form-control" id="income">
-            <label for="incomeaftertex">Income After Tax Deduction:</label>
-            <input type="number" class="form-control" id="incomeaftertex">
-          </div>
-          <div class="col-sm-6">
+              <label for="age">Age:</label>
+              <input type="number" class="form-control" id="age" name="age">
+              <label for="income">Income:</label>
+              <input type="number" class="form-control" id="income">
+              <label for="incomeaftertex">Income After Tax Deduction:</label>
+              <input type="number" class="form-control" id="incomeaftertex">
+            </div>
+            <div class="col-sm-6">
               <h3>Expenditure</h3>
 
               <label for="food">Food:</label>
-              <input type="number" class="form-control" id="food">
+              <input type="number" class="form-control" id="food" name="food">
               <label for="gadget">Gadget:</label>
-              <input type="number" class="form-control" id="gadget">
+              <input type="number" class="form-control" id="gadget" name="gadget">
               <label for="clothing">Clothing:</label>
-              <input type="number" class="form-control" id="clothing">
+              <input type="number" class="form-control" id="clothing" name="clothing">
               <div style="display: flex;">
                 <label for="homeexp">Home(include everything):</label>
                 <input type="number" class="form-control" id="homeexp">
@@ -112,27 +113,33 @@
               </div>
             </div>
 
-              <div class="col-sm-12 text-center">
-                <button type="submit" class="btn btn-default text-center">Show Recommandations</button>
-                <!--<button type="submit" class="btn btn-default text-center" data-toggle="modal" data-target="#myModal">Get
+            <div class="col-sm-12 text-center">
+              <button type="submit" class="btn btn-default text-center">Show Recommandations</button>
+              <!--<button type="submit" class="btn btn-default text-center" data-toggle="modal" data-target="#myModal">Get
                   Recommendation</button>-->
-              </div>
             </div>
+          </div>
         </form>
-        </div>
+        {% if result %}
+        <center>
+          <h3>{{ result }}</h3>
+          <h5>Want to save more click on Button below</h5>
+          <button data-toggle="modal" data-target="#myModal" class="btn btn-default text-center">Save More</button>
+        </center>
+        {% endif %}
+      </div>
+      
 
-            <center>
-              <h3>{{ result }}</h3>
-            </center>
 
-          <div class="col-sm-2 sidenav">
+
+      <div class="col-sm-2 sidenav">
         <div class="well">
           <p>Gold</p>
           <p>45,695.00</p>
         </div>
         <div class="well">
           <p>Us Dollar</p>
-         <p>74.76</p>
+          <p>74.76</p>
         </div>
         <div class="well">
           <p></p>
@@ -153,10 +160,10 @@
           <h4 class="modal-title">Recommendation</h4>
         </div>
         <div class="modal-body">
-          <p>Some text</p>
+          <p>You can Save More if you if control your expense on {{exp}} </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <a href="/" class="btn btn-default" data-dismiss="modal">Close</a>
         </div>
       </div>
 

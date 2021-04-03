@@ -23,7 +23,13 @@ def predict():
     # params = sr.get_quotes()
     age = request.form['age']
     savings = request.form['savings']
-    print("Val1 ", age)
+    food = request.form['food']
+    gadget = request.form['gadget']
+    clothing = request.form['clothing']
+    allexp = {'Food':int(food),'Gadget':int(gadget),'Clothing':int(clothing)}
+    maxexp = max(allexp,key=allexp.get)
+    print("Max Expense ", maxexp)
+    #print("Max value of that key ", allexp.get(maxexp))
     age, savings = int(age), int(savings)
     # inputs = [val for val in request.form.values()]
     # print("Form inputs are: ", inputs)
@@ -149,7 +155,7 @@ def predict():
             pred = 'some error'
     print("Cluster ", result[0])
     # param = {'result': pred, 'info':params}
-    return render_template('home.html', result=pred, info=index_vals)
+    return render_template('home.html', result=pred, info=index_vals,exp=maxexp)
 
 
 if __name__ == '__main__':
