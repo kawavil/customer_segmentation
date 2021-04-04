@@ -14,30 +14,23 @@ index_vals = {}
 def index():
     global index_vals
     index_vals = sr.get_quotes()
-    # params = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6}
     return render_template('home.html', info=index_vals)
 
 
 @app.route('/predict', methods=["POST"])
 def predict():
-    # params = sr.get_quotes()
     age = request.form['age']
     savings = request.form['savings']
     food = request.form['food']
     gadget = request.form['gadget']
     clothing = request.form['clothing']
-    allexp = {'Food':int(food),'Gadget':int(gadget),'Clothing':int(clothing)}
-    maxexp = max(allexp,key=allexp.get)
+    allexp = {'Food': int(food), 'Gadget': int(gadget), 'Clothing': int(clothing)}
+    maxexp = max(allexp, key=allexp.get)
     print("Max Expense ", maxexp)
-    #print("Max value of that key ", allexp.get(maxexp))
+    # print("Max value of that key ", allexp.get(maxexp))
     age, savings = int(age), int(savings)
-    # inputs = [val for val in request.form.values()]
-    # print("Form inputs are: ", inputs)
     result = model.predict([[age, savings]])
     pred = ''
-    # savings = 0
-    # savings = (int(inputs[2])/100)*int(inputs[1])
-    # age = int(inputs[0])
     if age < int(18):
         pred = "Please sit back and relax for few years"
     else:
@@ -155,7 +148,7 @@ def predict():
             pred = 'some error'
     print("Cluster ", result[0])
     # param = {'result': pred, 'info':params}
-    return render_template('home.html', result=pred, info=index_vals,exp=maxexp)
+    return render_template('home.html', result=pred, info=index_vals, exp=maxexp)
 
 
 if __name__ == '__main__':
