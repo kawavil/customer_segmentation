@@ -37,7 +37,7 @@ def predict():
         if result[0] == 0:
             if 18 <= age <= 28:
                 if savings >= 600:
-                    pred = "You can invest in options and derivatives"
+                    pred = "You can invest in options"
                 else:
                     pred = "You can invest in equitis and gold"
             elif 28 < age <= 35:
@@ -59,7 +59,7 @@ def predict():
         elif result[0] == 1:
             if 18 <= age <= 28:
                 if savings >= 600:
-                    pred = "You can invest in options and derivatives"
+                    pred = "You can invest in options"
                 else:
                     pred = "You can invest in equitis and gold"
             elif 28 < age <= 35:
@@ -103,7 +103,7 @@ def predict():
         elif result[0] == 3:
             if 18 <= age <= 28:
                 if savings >= 600:
-                    pred = "You can invest in options and derivatives"
+                    pred = "You can invest in options"
                 else:
                     pred = "You can invest in equitis and gold"
             elif 28 < age <= 35:
@@ -125,7 +125,7 @@ def predict():
         elif result[0] == 4:
             if 18 <= age <= 28:
                 if savings >= 600:
-                    pred = "You can invest in options and derivatives"
+                    pred = "You can invest in options"
                 else:
                     pred = "You can invest in equitis and gold"
             elif 28 < age <= 35:

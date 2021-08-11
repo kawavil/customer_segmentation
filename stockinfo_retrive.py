@@ -13,10 +13,10 @@ def get_price(url):
 
 
 def get_quotes():
-    stocks_dict = {"nifty50": "https://www.google.com/finance/quote/NIFTY_50:INDEXNSE",
-                   "sensex": "https://www.google.com/finance/quote/SENSEX:INDEXBOM",
-                   "banknifty": "https://www.google.com/finance/quote/NIFTY_BANK:INDEXNSE",
-                   "niftymidcap50": "https://www.google.com/finance/quote/NIFTY_MIDCAP_50:INDEXNSE"
+    stocks_dict = {"NIFTY 50": "https://www.google.com/finance/quote/NIFTY_50:INDEXNSE",
+                   "SENSEX": "https://www.google.com/finance/quote/SENSEX:INDEXBOM",
+                   "NIFTY BANK": "https://www.google.com/finance/quote/NIFTY_BANK:INDEXNSE",
+                   "NIFTY MIDCAP 50": "https://www.google.com/finance/quote/NIFTY_MIDCAP_50:INDEXNSE"
                    # 'tcs': "https://www.google.com/finance/quote/TCS:NSE",
                    # 'hul': 'https://www.google.com/finance/quote/HINDUNILVR:NSE',
                    # "reliance": "https://www.google.com/finance/quote/RELIANCE:NSE",
